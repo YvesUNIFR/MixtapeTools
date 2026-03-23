@@ -52,8 +52,15 @@ For EVERY slide, assess:
 
 5. **Compile cleanliness**
    - Compile with `pdflatex -interaction=nonstopmode`
+   - **After compiling, read the `.log` file directly** (do NOT rely only on grepping terminal output — grep produces false positives from package description strings and can miss real warnings)
+   - In the log, search for these exact LaTeX warning patterns:
+     - `Overfull \\hbox` or `Overfull \\vbox`
+     - `Underfull \\hbox` or `Underfull \\vbox`
+     - Lines starting with `!` (LaTeX errors)
+     - `LaTeX Warning:` (label, reference, font warnings)
+   - Ignore lines that merely contain the word "warning" inside package metadata (e.g., `infwarerr` package descriptions)
    - Zero overfull hbox. Zero overfull vbox. Zero underfull warnings. Zero errors.
-   - If warnings exist, report them with line numbers.
+   - If warnings exist, report them with exact line numbers from the log.
 
 6. **Narrative flow**
    - Does it open with a concrete application, not an abstract claim?
