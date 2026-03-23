@@ -45,10 +45,11 @@ For EVERY slide, assess:
 3. **Titles are assertions, not labels**
    - "Results" is bad. "Treatment increased turnout by 5pp" is good.
 
-4. **TikZ coordinate verification**
+4. **TikZ coordinate verification and margin spacing**
    - Check that axis labels align with data positions
    - Check that labels don't overlap or clip
    - Check that coordinates are mathematically consistent
+   - **Margin rule**: Every pair of visual objects (labels, arrows, axes, boxes) must have visible margin space between them. No two objects should touch or visually collide. Minimum clearances: label↔label 0.3cm, label↔axis 0.3cm, label↔arrow 0.3cm, any object↔slide edge 0.5cm. See `~/mixtapetools/.claude/skills/compiledeck/tikz_rules.md` Pass 5 for the full table.
 
 5. **Compile cleanliness**
    - Compile with `pdflatex -interaction=nonstopmode`

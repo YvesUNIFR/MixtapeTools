@@ -183,8 +183,22 @@ ax.text(x, box_mid_y + 0.15, 'Title\nLine 2', va='bottom', ...)  # grows UP
 ax.text(x, box_mid_y - 0.15, r'$math$',       va='top', ...)     # grows DOWN
 ```
 
-### Pass 5: Everything else
+### Pass 5: Margin spacing and everything else
 
+**THE MARGIN RULE (mandatory):** Every pair of distinct visual objects — labels, arrows, boxes, axis lines, tick marks, curve endpoints — must have **visible margin space** between them. No object should touch or visually collide with another. Minimum clearances:
+
+| Object pair | Minimum clearance |
+|---|---|
+| Label ↔ label | 0.3cm |
+| Label ↔ axis line | 0.3cm |
+| Label ↔ arrow | 0.3cm |
+| Arrow origin ↔ box edge | 0.15cm |
+| Label ↔ drawn shape boundary | 0.4cm (see Pass 4) |
+| Any object ↔ slide edge | 0.5cm |
+
+When two labels would overlap or touch at their intended positions, move one of them — offset it, anchor it differently, or shorten the text. **Never allow two objects to share the same visual space.** This rule catches the most common TikZ errors: labels sitting on axis lines, $\mu$ markers overlapping x-axis descriptions, arrow origins crowding box edges.
+
+Additional checks:
 - Multi-line nodes have `align=center`?
 - No nodes clipped by slide edges (0.5cm margin)?
 - If scaled: nodes scaled too, not just coordinates?
