@@ -14,8 +14,11 @@ This directory contains documentation, methodology, and example output for the s
 
 | Skill | Command | What it does |
 |-------|---------|--------------|
-| [**Split-PDF**](split-pdf/) | `/split-pdf` | You give Claude a paper (a local file or a search query like "Gentzkow Shapiro 2014 competition newspapers"). It finds and downloads the PDF, saves it locally, splits it into small chunks, reads them carefully in batches, and writes detailed structured notes — extracting research questions, methods, data sources, findings, and more. The original PDF is always preserved. [See the full walkthrough with example output →](split-pdf/) |
-| [**New Project**](newproject/) | `/newproject` | Scaffolds a new research project with a standard directory structure — `code/`, `data/raw/`, `data/clean/`, `output/`, `documents/`, `decks/`, `notes/`, and `progress_logs/`. Copies a CLAUDE.md template for persistent AI context, generates a documented README, and creates an initial progress log for session continuity. [See documentation →](newproject/) |
+| [**Referee 2**](referee2/) | `/referee2` | A five-audit systematic review protocol — code correctness, cross-language replication, directory structure, output automation, and econometrics. Runs in a fresh terminal after project completion. Creates independent replication scripts in two additional languages and files a formal referee report with verdict. [See documentation →](referee2/) |
+| [**Fletcher**](fletcher/) | `/fletcher` | A defamiliarization audit for empirical output. Before you interpret a figure or table, Fletcher walks through six steps: list every feature (not just the main result), ask what would generate each one, find the hardest feature to explain, check the sample size, verify the pattern across specs, and confirm you can account for every number. Named for Jason Fletcher. [See the origin story →](fletcher/) |
+| [**Compile Deck**](compiledeck/) | `/compiledeck` | Creates and compiles Beamer presentations following the Rhetoric of Decks philosophy — one idea per slide, assertion titles, MB/MC equivalence. Compiles until the log shows zero warnings. [See documentation →](compiledeck/) |
+| [**Split-PDF**](split-pdf/) | `/split-pdf` | Downloads and deep-reads academic PDFs without crashing the session. Splits into 4-page chunks, reads in batches of ~12 pages, writes structured notes. [See full walkthrough →](split-pdf/) |
+| [**New Project**](newproject/) | `/newproject` | Scaffolds a new research project with standard directory structure, CLAUDE.md template, and documented README. [See documentation →](newproject/) |
 
 ---
 
@@ -52,6 +55,15 @@ Each skill is a markdown file at `.claude/skills/<name>/SKILL.md`. It has a smal
 
 ```
 .claude/skills/
+├── referee2/
+│   └── SKILL.md           # The instructions Claude follows
+├── fletcher/
+│   └── SKILL.md           # The instructions Claude follows
+├── compiledeck/
+│   ├── SKILL.md           # The instructions Claude follows
+│   ├── domain_patterns.md # Audience-specific guidance
+│   ├── palette_reference.md # Color palette options
+│   └── tikz_rules.md      # TikZ collision-prevention protocol
 ├── split-pdf/
 │   ├── SKILL.md           # The instructions Claude follows
 │   └── methodology.md     # Why this approach works (for humans)
@@ -59,6 +71,12 @@ Each skill is a markdown file at `.claude/skills/<name>/SKILL.md`. It has a smal
     └── SKILL.md           # The instructions Claude follows
 
 skills/
+├── referee2/
+│   └── README.md          # Five audits, the R&R process, how it works
+├── fletcher/
+│   └── README.md          # Full origin essay — the t=1 spike story, Shklovsky
+├── compiledeck/
+│   └── README.md          # The Rhetoric of Decks, palettes, TikZ rules
 ├── split-pdf/
 │   └── README.md          # Full documentation and examples (for humans)
 └── newproject/
